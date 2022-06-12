@@ -16,3 +16,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'login'])->name( 'login');
 Route::get('/login', [HomeController::class, 'login'])->name( 'login');
 Route::post('/login', [HomeController::class, 'tryLogin']);
+Route::get('/xss', [HomeController::class, 'xss'])->name('xss');
+Route::post('/xss', [HomeController::class, 'tryXss']);
+Route::post('/xss/{id}', [HomeController::class, 'deletePost']);

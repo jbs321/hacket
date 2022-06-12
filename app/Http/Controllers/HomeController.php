@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -41,7 +42,30 @@ class HomeController extends Controller
 
         $result = DB::select($sql);
 
-
         return new JsonResponse($result);
+    }
+
+    public function xss()
+    {
+        $posts = Post::all();
+        return view('xss', compact('posts'));
+    }
+
+    public function tryXss(Request $request)
+    {
+        $sql = "INSERT INTO posts (name, message) VALUES ('$request->name', '$request->message')";
+        DB::insert($sql);
+
+        $posts = Post::all();
+
+        return view('xss',compact('posts'));
+    }
+
+    public function deletePost($id)
+    {
+        Post::destroy($id);
+        $posts = Post::all();
+
+        return view('xss',compact('posts'));
     }
 }

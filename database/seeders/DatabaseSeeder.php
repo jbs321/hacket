@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          \App\Models\User::factory(10)->create(['password' => rand(1000000000, 99999999999999)]);
+         \App\Models\Post::factory()->count(5)->create();
     }
 }

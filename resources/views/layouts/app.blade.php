@@ -40,11 +40,13 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('SQL Injection') }}</a>
-                                </li>
-                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('SQL Injection') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('xss') }}">{{ __('XSS') }}</a>
+                            </li>
 
 {{--                                <li class="nav-item">--}}
 {{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('XSS') }}</a>--}}
