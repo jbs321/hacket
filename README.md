@@ -10,15 +10,22 @@ SQL INJECTION
 
 
 XSS
-
+-
+Change background
+---
 <script>
 document.body.style.backgroundColor = "red";
 </script>
 
+Print Cookie
+----
 <script>
 alert( document.cookie );
 </script>
 
+
+Rotate
+---
 <script>
 document.body.style.transform = "rotate(45deg)";
 </script>
